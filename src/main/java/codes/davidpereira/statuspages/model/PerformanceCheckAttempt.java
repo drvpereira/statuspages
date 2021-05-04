@@ -1,6 +1,6 @@
 package codes.davidpereira.statuspages.model;
 
-public class PerformanceCheckEvent {
+public class PerformanceCheckAttempt {
 
     PerformanceCheck type;
 

@@ -8,10 +8,6 @@ public enum Status {
 
     NOTICE,
 
-    INCIDENT,
-
-    PARTIAL_OUTAGE,
-
-    MAJOR_OUTAGE
+    OUTAGE
 
 }
