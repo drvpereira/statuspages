@@ -1,29 +1,29 @@
 package codes.davidpereira.statuspages.model;
 
-import lombok.Data;
+import lombok.Getter;
 
 import java.time.LocalDateTime;
 
-@Data
+@Getter
 public class HealthCheckAttempt {
 
-    private HealthCheckType type;
+    private HealthCheckConfig config;
 
     private LocalDateTime timestamp;
 
-    private Status status;
+    private HealthStatus status;
 
     public static HealthCheckAttempt operational() {
         var attempt = new HealthCheckAttempt();
-        attempt.setStatus(Status.OPERATIONAL);
-        attempt.setTimestamp(LocalDateTime.now());
+        attempt.status = HealthStatus.OPERATIONAL;
+        attempt.timestamp = LocalDateTime.now();
         return attempt;
     }
 
     public static HealthCheckAttempt outage() {
         var attempt = new HealthCheckAttempt();
-        attempt.setStatus(Status.OUTAGE);
-        attempt.setTimestamp(LocalDateTime.now());
+        attempt.status = HealthStatus.OUTAGE;
+        attempt.timestamp = LocalDateTime.now();
         return attempt;
     }
 
