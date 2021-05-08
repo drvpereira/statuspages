@@ -1,10 +1,16 @@
 package codes.davidpereira.statuspages.model;
 
+import org.hibernate.annotations.ResultCheckStyle;
+import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.Where;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
 
 @Entity
+@SQLDelete(sql ="update incident set deleted = true where id = ?", check = ResultCheckStyle.COUNT)
+@Where(clause = "deleted = false")
 public class Incident {
 
     @Id
@@ -20,6 +26,6 @@ public class Incident {
     private String description;
 
     @OneToMany(mappedBy = "incident")
-    private List<Update> updates;
+    private List<IncidentUpdate> updates;
 
 }

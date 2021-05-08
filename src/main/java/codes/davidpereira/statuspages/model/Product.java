@@ -8,7 +8,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@SQLDelete(sql ="update product  set deleted = true where id = ?", check = ResultCheckStyle.COUNT)
+@SQLDelete(sql ="update product set deleted = true where id = ?", check = ResultCheckStyle.COUNT)
 @Where(clause = "deleted = false")
 public class Product {
 

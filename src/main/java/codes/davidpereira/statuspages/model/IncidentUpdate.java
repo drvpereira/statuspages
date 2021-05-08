@@ -1,10 +1,16 @@
 package codes.davidpereira.statuspages.model;
 
+import org.hibernate.annotations.ResultCheckStyle;
+import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.Where;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
-public class Update {
+@SQLDelete(sql ="update incident_update set deleted = true where id = ?", check = ResultCheckStyle.COUNT)
+@Where(clause = "deleted = false")
+public class IncidentUpdate {
 
     @Id
     private Long id;
