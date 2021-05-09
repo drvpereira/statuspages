@@ -1,7 +1,7 @@
-package codes.davidpereira.statuspages;
+package dev.davidpereira.statuspages;
 
-import codes.davidpereira.statuspages.model.HealthStatus;
-import codes.davidpereira.statuspages.model.HttpHealthCheckConfig;
+import dev.davidpereira.statuspages.model.HealthStatus;
+import dev.davidpereira.statuspages.model.HttpHealthCheckConfig;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.HttpStatus;
 

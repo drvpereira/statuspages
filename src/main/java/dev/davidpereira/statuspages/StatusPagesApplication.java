@@ -1,4 +1,4 @@
-package codes.davidpereira.statuspages;
+package dev.davidpereira.statuspages;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

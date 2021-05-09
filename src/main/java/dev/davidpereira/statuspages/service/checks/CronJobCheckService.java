@@ -1,4 +1,4 @@
-package codes.davidpereira.statuspages.service.checks;
+package dev.davidpereira.statuspages.service.checks;
 
 import org.springframework.scheduling.TaskScheduler;
 

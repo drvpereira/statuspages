@@ -1,4 +1,4 @@
-package codes.davidpereira.statuspages.model;
+package dev.davidpereira.statuspages.model;
 
 import io.vavr.CheckedFunction0;
 import io.vavr.control.Try;
@@ -13,8 +13,8 @@ import org.apache.http.message.BasicHeader;
 import java.util.Map;
 import java.util.Set;
 
-import static codes.davidpereira.statuspages.model.HealthCheckAttempt.operational;
-import static codes.davidpereira.statuspages.model.HealthCheckAttempt.outage;
+import static dev.davidpereira.statuspages.model.HealthCheckAttempt.operational;
+import static dev.davidpereira.statuspages.model.HealthCheckAttempt.outage;
 import static java.util.Optional.ofNullable;
 
 @Builder @Getter

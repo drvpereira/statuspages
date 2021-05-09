@@ -1,4 +1,4 @@
-package codes.davidpereira.statuspages.model;
+package dev.davidpereira.statuspages.model;
 
 import javax.persistence.*;
 

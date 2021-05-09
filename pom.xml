@@ -8,7 +8,7 @@
 		<version>2.4.5</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>codes.davidpereira</groupId>
+	<groupId>dev.davidpereira</groupId>
 	<artifactId>statuspages</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>statuspages</name>
