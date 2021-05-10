@@ -7,7 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import java.util.List;
 import java.util.Optional;
+
+import static java.util.stream.Collectors.toList;
 
 public abstract class CrudController<T, P, ID> {
 
@@ -18,9 +21,15 @@ public abstract class CrudController<T, P, ID> {
     private PayloadMapper<T, P> payloadMapper;
 
     @GetMapping("/{id}")
-    public P get(@PathVariable("id") ID id) {
+    public P getOne(@PathVariable("id") ID id) {
         Optional<T> searchedObject = service.findById(id);
         return searchedObject.map(payloadMapper::toPayload).orElseThrow(ResourceNotFoundException::new);
+    }
+
+    @GetMapping("/")
+    public List<P> getAll() {
+        List<T> searchedObject = service.findAll();
+        return searchedObject.stream().map(payloadMapper::toPayload).collect(toList());
     }
 
 }

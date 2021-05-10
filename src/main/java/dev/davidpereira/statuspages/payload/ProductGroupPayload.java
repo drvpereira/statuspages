@@ -1,4 +1,4 @@
-package dev.davidpereira.statuspages.dto;
+package dev.davidpereira.statuspages.payload;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
