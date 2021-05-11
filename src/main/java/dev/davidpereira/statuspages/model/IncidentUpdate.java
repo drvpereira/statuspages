@@ -6,11 +6,14 @@ import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.Optional;
+
+import static java.util.Optional.ofNullable;
 
 @Entity
 @SQLDelete(sql ="update incident_update set deleted = true where id = ?", check = ResultCheckStyle.COUNT)
 @Where(clause = "deleted = false")
-public class IncidentUpdate {
+public class IncidentUpdate implements Persistable<Long> {
 
     @Id
     private Long id;
@@ -25,5 +28,10 @@ public class IncidentUpdate {
     private LocalDateTime timestamp;
 
     private String description;
+
+    @Override
+    public Optional<Long> getId() {
+        return ofNullable(id);
+    }
 
 }

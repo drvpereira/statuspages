@@ -1,11 +1,14 @@
 package dev.davidpereira.statuspages.model;
 
 import javax.persistence.*;
+import java.util.Optional;
+
+import static java.util.Optional.ofNullable;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "type", discriminatorType = DiscriminatorType.STRING)
-public abstract class HealthCheckConfig {
+public abstract class HealthCheckConfig implements Persistable<Long> {
 
     @Id
     private Long id;
@@ -14,4 +17,8 @@ public abstract class HealthCheckConfig {
 
     abstract HealthCheckAttempt doHealthCheck();
 
+    @Override
+    public Optional<Long> getId() {
+        return ofNullable(id);
+    }
 }

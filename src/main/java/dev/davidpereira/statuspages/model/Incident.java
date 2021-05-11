@@ -7,11 +7,14 @@ import org.hibernate.annotations.Where;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
+
+import static java.util.Optional.ofNullable;
 
 @Entity
 @SQLDelete(sql ="update incident set deleted = true where id = ?", check = ResultCheckStyle.COUNT)
 @Where(clause = "deleted = false")
-public class Incident {
+public class Incident implements Persistable<Long> {
 
     @Id
     private Long id;
@@ -28,4 +31,8 @@ public class Incident {
     @OneToMany(mappedBy = "incident")
     private List<IncidentUpdate> updates;
 
+    @Override
+    public Optional<Long> getId() {
+        return ofNullable(id);
+    }
 }

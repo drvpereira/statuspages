@@ -6,11 +6,14 @@ import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Optional;
+
+import static java.util.Optional.ofNullable;
 
 @Entity
 @SQLDelete(sql ="update product set deleted = true where id = ?", check = ResultCheckStyle.COUNT)
 @Where(clause = "deleted = false")
-public class Product {
+public class Product implements Persistable<Long> {
 
     @Id
     private Long id;
@@ -26,5 +29,10 @@ public class Product {
 
     @OneToMany
     private List<HealthCheckConfig> healthChecks;
+
+    @Override
+    public Optional<Long> getId() {
+        return ofNullable(id);
+    }
 
 }

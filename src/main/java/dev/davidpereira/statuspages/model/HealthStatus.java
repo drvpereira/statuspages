@@ -8,7 +8,7 @@ public enum HealthStatus {
 
     NOTICE,
 
-    PERFORMANCE_DEGRADATION,
+    DEGRADED_PERFORMANCE,
 
     PARTIAL_OUTAGE,
 
