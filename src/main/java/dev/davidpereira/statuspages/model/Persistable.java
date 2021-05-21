@@ -4,6 +4,6 @@ import java.util.Optional;
 
 public interface Persistable<ID> {
 
-    Optional<ID> getId();
+    Optional<ID> getOptionalId();
 
 }

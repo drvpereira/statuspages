@@ -30,7 +30,7 @@ public class IncidentUpdate implements Persistable<Long> {
     private String description;
 
     @Override
-    public Optional<Long> getId() {
+    public Optional<Long> getOptionalId() {
         return ofNullable(id);
     }
 

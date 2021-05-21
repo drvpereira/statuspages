@@ -31,7 +31,7 @@ public class Product implements Persistable<Long> {
     private List<HealthCheckConfig> healthChecks;
 
     @Override
-    public Optional<Long> getId() {
+    public Optional<Long> getOptionalId() {
         return ofNullable(id);
     }
 

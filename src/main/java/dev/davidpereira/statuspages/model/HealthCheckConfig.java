@@ -18,7 +18,8 @@ public abstract class HealthCheckConfig implements Persistable<Long> {
     abstract HealthCheckAttempt doHealthCheck();
 
     @Override
-    public Optional<Long> getId() {
+    public Optional<Long> getOptionalId() {
         return ofNullable(id);
     }
+
 }

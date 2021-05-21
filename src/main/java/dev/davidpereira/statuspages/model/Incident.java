@@ -32,7 +32,7 @@ public class Incident implements Persistable<Long> {
     private List<IncidentUpdate> updates;
 
     @Override
-    public Optional<Long> getId() {
+    public Optional<Long> getOptionalId() {
         return ofNullable(id);
     }
 }

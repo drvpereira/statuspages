@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet id="202010211812" author="David Pereira">
+
+        <createTable tableName="product_group">
+            <column name="id" type="bigint">
+                <constraints primaryKey="true" primaryKeyName="product_group_id_pk" />
+            </column>
+            <column name="name" type="varchar(100)">
+                <constraints nullable="false" />
+            </column>
+            <column name="deleted" type="boolean" defaultValueBoolean="false"/>
+        </createTable>
+
+        <addAutoIncrement tableName="product_group" columnName="id" columnDataType="bigint" startWith="1" incrementBy="1"/>
+
+        <createTable tableName="product">
+            <column name="id" type="bigint">
+                <constraints primaryKey="true" primaryKeyName="product_id_pk"/>
+            </column>
+            <column name="name" type="varchar(250)">
+                <constraints nullable="false" />
+            </column>
+            <column name="status" type="varchar(50)">
+                <constraints nullable="false" />
+            </column>
+            <column name="group_id" type="bigint">
+                <constraints nullable="false" notNullConstraintName="item_house_id_nn"/>
+            </column>
+            <column name="deleted" type="boolean" defaultValueBoolean="false"/>
+        </createTable>
+        <addAutoIncrement tableName="product" columnName="id" columnDataType="bigint" startWith="1" incrementBy="1"/>
+        <addForeignKeyConstraint baseTableName="product" baseColumnNames="group_id" constraintName="product_group_id_fk"
+                                 referencedTableName="product_group" referencedColumnNames="id"/>
+    </changeSet>
+
+</databaseChangeLog>
